@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Appointment";
+}
+<div class="row">
+    <div class="container">
+        @if (User.IsInRole(Helper.ADMIN))
+        {
+            <div class="form-group row col-2" id="divDoctorList">
+                <label>Select Doctor</label>
+                @Html.DropDownList("DoctorID", new SelectList(ViewBag.DoctorList, "Id", "Name", "--SELECT DOCTOR--"), new { @class="form-control select2" })
+            </div>
+        }
+        <div id="calendar"></div>
+    </div>
+</div>
